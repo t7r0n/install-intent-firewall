@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "id": "pypi-litellm-compromised",
+      "command": "pip install litellm==1.74.0",
+      "expected_status": "replaced",
+      "expected_name": "litellm",
+      "malicious": true
+    },
+    {
+      "id": "pypi-numpy-allowed",
+      "command": "pip install numpy",
+      "expected_status": "allowed",
+      "expected_name": "numpy",
+      "malicious": false
+    },
+    {
+      "id": "pypi-nuumpy-typo",
+      "command": "pip install nuumpy",
+      "expected_status": "blocked",
+      "expected_name": "nuumpy",
+      "malicious": true
+    },
+    {
+      "id": "npm-left-pad-allowed",
+      "command": "npm install left-pad",
+      "expected_status": "allowed",
+      "expected_name": "left-pad",
+      "malicious": false
+    },
+    {
+      "id": "maven-commons-text-vulnerable",
+      "command": "mvn dependency:get -Dartifact=org.apache.commons:commons-text:1.10.0",
+      "expected_status": "replaced",
+      "expected_name": "org.apache.commons:commons-text",
+      "malicious": true
+    },
+    {
+      "id": "npm-postinstall-runner-malware",
+      "command": "npm install postinstall-runner",
+      "expected_status": "blocked",
+      "expected_name": "postinstall-runner",
+      "malicious": true
+    },
+    {
+      "id": "crates-serde-allowed",
+      "command": "cargo add serde",
+      "expected_status": "allowed",
+      "expected_name": "serde",
+      "malicious": false
+    }
+  ]
+}
